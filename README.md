@@ -1,9 +1,9 @@
 # simple-git-changelog
 
-![PyPI - Status](https://img.shields.io/pypi/status/simple-git-changelog)
-![PyPI](https://img.shields.io/pypi/v/simple-git-changelog)
-![GitHub](https://img.shields.io/github/license/craigahobbs/simple-git-changelog)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simple-git-changelog)
+[![PyPI - Status](https://img.shields.io/pypi/status/simple-git-changelog)](https://pypi.org/project/simple-git-changelog/)
+[![PyPI](https://img.shields.io/pypi/v/simple-git-changelog)](https://pypi.org/project/simple-git-changelog/)
+[![GitHub](https://img.shields.io/github/license/craigahobbs/simple-git-changelog)](https://github.com/craigahobbs/simple-git-changelog/blob/main/LICENSE)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simple-git-changelog)](https://pypi.org/project/simple-git-changelog/)
 
 **simple-git-changelog** is a command-line tool for creating and updating a git project's changelog
 file.
@@ -38,12 +38,6 @@ simple-git-changelog again. Change items for new git changes are added to the to
 
 - [abcdef](https://github.com/username/project-name/commit/abcdef) previous change
 ```
-
-
-## Links
-
-- [Package on pypi](https://pypi.org/project/simple-git-changelog/)
-- [Source code on GitHub](https://github.com/craigahobbs/simple-git-changelog)
 
 
 ## Usage
