@@ -43,12 +43,11 @@ simple-git-changelog again. Change items for new git changes are added to the to
 ## Usage
 
 ```
-usage: simple-git-changelog [-h] [-o FILE] [--version]
+usage: simple-git-changelog [-h] [-o FILE]
 
 options:
   -h, --help  show this help message and exit
   -o FILE     specify the change log file (default is "CHANGELOG.md")
-  --version   show version number and quit
 ```
 
 ## Development
