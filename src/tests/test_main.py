@@ -8,7 +8,6 @@ import tempfile
 import unittest
 from unittest.mock import call, patch
 
-from simple_git_changelog import __version__ as VERSION
 from simple_git_changelog.__main__ import main as main_import
 from simple_git_changelog.main import main
 
@@ -21,16 +20,6 @@ class TestMain(unittest.TestCase):
 
     def test_main_import(self):
         self.assertIs(main, main_import)
-
-    def test_version(self):
-        with patch('sys.stdout', StringIO()) as stdout, \
-             patch('sys.stderr', StringIO()) as stderr:
-            with self.assertRaises(SystemExit) as cm_exc:
-                main(['--version'])
-
-        self.assertEqual(cm_exc.exception.code, 0)
-        self.assertEqual(stdout.getvalue(), '')
-        self.assertEqual(stderr.getvalue(), str(VERSION) + '\n')
 
     def test_output(self):
         with patch('sys.stdout', StringIO()) as stdout, \

@@ -7,8 +7,6 @@ import os
 import re
 import subprocess
 
-from . import __version__ as VERSION
-
 
 def main(args=None):
 
@@ -16,11 +14,7 @@ def main(args=None):
     parser = argparse.ArgumentParser(prog='simple-git-changelog')
     parser.add_argument('-o', metavar='FILE', dest='output', default='CHANGELOG.md',
                         help='specify the change log file (default is "CHANGELOG.md")')
-    parser.add_argument('--version', action='store_true',
-                        help='show version number and quit')
     args = parser.parse_args(args=args)
-    if args.version:
-        parser.exit(message=VERSION + '\n')
 
     # Parse the change log file, if any
     if os.path.isfile(args.output):
