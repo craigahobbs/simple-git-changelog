@@ -1,3 +1,7 @@
+## 1.0.2 (2021-07-22)
+
+- [d6d7eb7](https://github.com/craigahobbs/simple-git-changelog/commit/d6d7eb7) - remove version argument
+
 ## 1.0.1 (2021-06-06)
 
 - [c53ec95](https://github.com/craigahobbs/simple-git-changelog/commit/c53ec95) - update readme
