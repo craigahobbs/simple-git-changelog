@@ -1,8 +1,6 @@
 # Licensed under the MIT License
 # https://github.com/craigahobbs/simple-git-changelog/blob/main/LICENSE
 
-# pylint: disable=missing-function-docstring
-
 """
 simple-git-changelog command-line script main module
 """

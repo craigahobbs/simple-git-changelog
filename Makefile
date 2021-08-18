@@ -17,3 +17,5 @@ include Makefile.base
 
 clean:
 	rm -rf Makefile.base pylintrc
+
+PYLINT_ARGS := $(PYLINT_ARGS) --disable=missing-class-docstring --disable=missing-function-docstring --disable=missing-module-docstring
