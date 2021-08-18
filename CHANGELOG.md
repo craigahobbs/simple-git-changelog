@@ -1,3 +1,7 @@
+## 1.0.3 (2021-08-18)
+
+- [9d6b21f](https://github.com/craigahobbs/simple-git-changelog/commit/9d6b21f) - updates from python-package-template
+
 ## 1.0.2 (2021-07-22)
 
 - [d6d7eb7](https://github.com/craigahobbs/simple-git-changelog/commit/d6d7eb7) - remove version argument
