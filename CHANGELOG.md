@@ -1,3 +1,7 @@
+## 1.0.4 (2021-08-18)
+
+- [db2e705](https://github.com/craigahobbs/simple-git-changelog/commit/db2e705) - updates from python-package-template
+
 ## 1.0.3 (2021-08-18)
 
 - [9d6b21f](https://github.com/craigahobbs/simple-git-changelog/commit/9d6b21f) - updates from python-package-template
