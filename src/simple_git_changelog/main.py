@@ -1,6 +1,12 @@
 # Licensed under the MIT License
 # https://github.com/craigahobbs/simple-git-changelog/blob/main/LICENSE
 
+# pylint: disable=missing-function-docstring
+
+"""
+simple-git-changelog command-line script main module
+"""
+
 import argparse
 from datetime import date
 import os
@@ -9,6 +15,9 @@ import subprocess
 
 
 def main(args=None):
+    """
+    simple-git-changelog command-line script main entry point
+    """
 
     # Command-line arguments
     parser = argparse.ArgumentParser(prog='simple-git-changelog')

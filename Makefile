@@ -17,5 +17,3 @@ include Makefile.base
 
 clean:
 	rm -rf Makefile.base pylintrc
-
-PYLINT_ARGS := $(PYLINT_ARGS) --disable=missing-docstring

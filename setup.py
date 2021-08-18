@@ -1,12 +1,12 @@
 # Licensed under the MIT License
 # https://github.com/craigahobbs/simple-git-changelog/blob/main/LICENSE
 
+# pylint: disable=missing-function-docstring, missing-module-docstring
+
 import os
 
 from setuptools import setup
 
-MODULE_NAME = 'simple_git_changelog'
-PACKAGE_NAME = 'simple-git-changelog'
 
 def main():
     # Read the readme for use as the long description
@@ -15,15 +15,15 @@ def main():
 
     # Do the setup
     setup(
-        name=PACKAGE_NAME,
+        name='simple-git-changelog',
         description='Simple git changelog file generator',
         long_description=long_description,
         long_description_content_type='text/markdown',
         version='1.0.2',
-        author='Craig Hobbs',
+        author='Craig A. Hobbs',
         author_email='craigahobbs@gmail.com',
         keywords='git changelog',
-        url='https://github.com/craigahobbs/' + PACKAGE_NAME,
+        url='https://github.com/craigahobbs/simple-git-changelog',
         license='MIT',
         classifiers=[
             'Development Status :: 5 - Production/Stable',
@@ -38,13 +38,14 @@ def main():
             'Topic :: Utilities'
         ],
         package_dir={'': 'src'},
-        packages=[MODULE_NAME],
+        packages=['simple_git_changelog'],
         entry_points={
             'console_scripts': [
-                PACKAGE_NAME + ' = ' + MODULE_NAME + '.main:main'
-            ],
+                'simple-git-changelog = simple_git_changelog.main:main'
+            ]
         }
     )
+
 
 if __name__ == '__main__':
     main()
