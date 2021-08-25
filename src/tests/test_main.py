@@ -133,3 +133,36 @@ abcdef this is another change
                 call(['git', 'config', '--get', 'remote.origin.url'], encoding='utf-8')
             ]
         )
+
+    def test_subject_escape(self):
+        with patch('sys.stdout', StringIO()) as stdout, \
+             patch('sys.stderr', StringIO()) as stderr, \
+             tempfile.TemporaryDirectory() as tempdir, \
+             patch('simple_git_changelog.main.date') as mock_date, \
+             patch('subprocess.check_output', side_effect=[
+                 '''\
+abcdf0 this is a change ()[]\\*
+''',
+                 TEST_GIT_URL_HTTPS
+             ]) as check_output:
+            output_filename = os.path.join(tempdir, 'CHANGELOG.md')
+
+            # Create file
+            mock_date.today.return_value = datetime.date(2021, 4, 30)
+            main(['-o', output_filename])
+            with open(output_filename, 'r') as output_file:
+                self.assertEqual(output_file.read(), '''\
+## 2021-04-30
+
+- [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change \\(\\)\\[\\]\\\\\\*
+''')
+
+        self.assertEqual(stdout.getvalue(), '')
+        self.assertEqual(stderr.getvalue(), '')
+        self.assertListEqual(
+            check_output.mock_calls,
+            [
+                call(['git', 'log', '--pretty=format:%h %s'], encoding='utf-8'),
+                call(['git', 'config', '--get', 'remote.origin.url'], encoding='utf-8')
+            ]
+        )

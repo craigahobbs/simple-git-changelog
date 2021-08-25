@@ -45,13 +45,20 @@ def main(args=None):
             for commit, subject in git_changes:
                 if commit in changelog_commits:
                     break
-                changelog_file.write(f'\n- [{commit}]({git_url}/commit/{commit}) - {subject}\n')
+                changelog_file.write(f'\n- [{commit}]({git_url}/commit/{commit}) - {escape_markdown_span(subject)}\n')
 
             # Write pre-existing changelog lines
             if changelog_lines:
                 changelog_file.write('\n')
             for changelog_line in changelog_lines:
                 changelog_file.write(changelog_line)
+
+
+# Helper function to escape Markdown span characters
+def escape_markdown_span(text):
+    return re_escape_markdown_span.sub(r'\\\1', text)
+
+re_escape_markdown_span = re.compile(r'([\\\[\]()*])')
 
 
 def parse_changelog(lines):
