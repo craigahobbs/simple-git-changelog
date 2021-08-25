@@ -1,3 +1,7 @@
+## 1.0.6 (2021-08-24)
+
+- [cfb8e8f](https://github.com/craigahobbs/simple-git-changelog/commit/cfb8e8f) - escape markdown subject text \(\)\[\]\\\\\*
+
 ## 1.0.5 (2021-08-24)
 
 - [60f568d](https://github.com/craigahobbs/simple-git-changelog/commit/60f568d) - update readme
