@@ -1,3 +1,7 @@
+## 1.0.5 (2021-08-24)
+
+- [60f568d](https://github.com/craigahobbs/simple-git-changelog/commit/60f568d) - update readme
+
 ## 1.0.4 (2021-08-18)
 
 - [db2e705](https://github.com/craigahobbs/simple-git-changelog/commit/db2e705) - updates from python-package-template
