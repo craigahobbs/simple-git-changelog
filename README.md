@@ -53,8 +53,8 @@ options:
 ## Development
 
 This project is developed using [Python Build](https://github.com/craigahobbs/python-build#readme). It was started
-using [python-package-template](https://github.com/craigahobbs/python-package-template#readme) as follows:
+using [python-template](https://github.com/craigahobbs/python-template#readme) as follows:
 
 ```
-template-specialize python-package-template/template/ simple-git-changelog/ -k package simple-git-changelog -k name 'Craig A. Hobbs' -k email 'craigahobbs@gmail.com' -k github 'craigahobbs' -k nodoc 1
+template-specialize python-template/template/ simple-git-changelog/ -k package simple-git-changelog -k name 'Craig A. Hobbs' -k email 'craigahobbs@gmail.com' -k github 'craigahobbs' -k noapi 1
 ```
