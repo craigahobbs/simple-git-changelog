@@ -25,7 +25,7 @@ def main(args=None):
 
     # Parse the change log file, if any
     if os.path.isfile(args.output):
-        with open(args.output, 'r') as changelog_file:
+        with open(args.output, 'r', encoding='utf-8') as changelog_file:
             changelog_lines = list(changelog_file)
         changelog_commits = parse_changelog(changelog_lines)
     else:
@@ -38,7 +38,7 @@ def main(args=None):
         git_url = get_git_url()
 
         # Write the updated changelog file
-        with open(args.output, 'w') as changelog_file:
+        with open(args.output, 'w', encoding='utf-8') as changelog_file:
 
             # Write entries for new changes
             changelog_file.write(f'## {date.today().isoformat()}\n')

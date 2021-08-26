@@ -48,7 +48,7 @@ abcdef this is another change
             # Create file
             mock_date.today.return_value = datetime.date(2021, 4, 30)
             main(['-o', output_filename])
-            with open(output_filename, 'r') as output_file:
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
 ## 2021-04-30
 
@@ -60,7 +60,7 @@ abcdef this is another change
             # Update file - nothing new
             mock_date.today.return_value = datetime.date(2021, 5, 1)
             main(['-o', output_filename])
-            with open(output_filename, 'r') as output_file:
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
 ## 2021-04-30
 
@@ -72,7 +72,7 @@ abcdef this is another change
             # Update file
             mock_date.today.return_value = datetime.date(2021, 5, 1)
             main(['-o', output_filename])
-            with open(output_filename, 'r') as output_file:
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
 ## 2021-05-01
 
@@ -115,7 +115,7 @@ abcdef this is another change
             # Create file
             mock_date.today.return_value = datetime.date(2021, 4, 30)
             main(['-o', output_filename])
-            with open(output_filename, 'r') as output_file:
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
 ## 2021-04-30
 
@@ -150,7 +150,7 @@ abcdf0 this is a change ()[]\\*
             # Create file
             mock_date.today.return_value = datetime.date(2021, 4, 30)
             main(['-o', output_filename])
-            with open(output_filename, 'r') as output_file:
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
 ## 2021-04-30
 
