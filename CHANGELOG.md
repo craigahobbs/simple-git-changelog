@@ -1,3 +1,7 @@
+## 1.0.7 (2022-08-24)
+
+- [39ef560](https://github.com/craigahobbs/simple-git-changelog/commit/39ef560) - add python 3.11 support, remove python 3.6
+
 ## 1.0.6 (2021-08-24)
 
 - [cfb8e8f](https://github.com/craigahobbs/simple-git-changelog/commit/cfb8e8f) - escape markdown subject text \(\)\[\]\\\\\*
