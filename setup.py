@@ -17,7 +17,7 @@ def main():
         description='Simple git changelog file generator',
         long_description=long_description,
         long_description_content_type='text/markdown',
-        version='1.0.6',
+        version='1.0.7',
         author='Craig A. Hobbs',
         author_email='craigahobbs@gmail.com',
         keywords='git changelog',
