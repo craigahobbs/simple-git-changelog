@@ -1,3 +1,7 @@
+## 1.1.0 (2022-08-28)
+
+- [3c43e7f](https://github.com/craigahobbs/simple-git-changelog/commit/3c43e7f) - add changelog title
+
 ## 1.0.7 (2022-08-24)
 
 - [39ef560](https://github.com/craigahobbs/simple-git-changelog/commit/39ef560) - add python 3.11 support, remove python 3.6
