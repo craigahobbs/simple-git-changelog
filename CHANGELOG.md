@@ -1,3 +1,5 @@
+# Changelog
+
 ## 1.1.0 (2022-08-28)
 
 - [3c43e7f](https://github.com/craigahobbs/simple-git-changelog/commit/3c43e7f) - add changelog title
