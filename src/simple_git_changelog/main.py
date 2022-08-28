@@ -26,11 +26,14 @@ def main(args=None):
     # Parse the change log file, if any
     if os.path.isfile(args.output):
         with open(args.output, 'r', encoding='utf-8') as changelog_file:
-            changelog_lines = list(changelog_file)
+            all_lines = list(changelog_file)
+            title_line = next(iter(line for line in all_lines if line.startswith('# ')), '# Changelog\n')
+            changelog_lines = list(line for line in all_lines if not line.startswith('# '))
         changelog_commits = parse_changelog(changelog_lines)
     else:
-        changelog_commits = set()
+        title_line = '# Changelog\n'
         changelog_lines = []
+        changelog_commits = set()
 
     # Any new changes?
     git_changes = get_git_changes()
@@ -40,15 +43,18 @@ def main(args=None):
         # Write the updated changelog file
         with open(args.output, 'w', encoding='utf-8') as changelog_file:
 
+            # Write the changelog title
+            changelog_file.write(title_line)
+
             # Write entries for new changes
-            changelog_file.write(f'## {date.today().isoformat()}\n')
+            changelog_file.write(f'\n## {date.today().isoformat()}\n')
             for commit, subject in git_changes:
                 if commit in changelog_commits:
                     break
                 changelog_file.write(f'\n- [{commit}]({git_url}/commit/{commit}) - {escape_markdown_span(subject)}\n')
 
             # Write pre-existing changelog lines
-            if changelog_lines:
+            if changelog_lines and changelog_lines[0] != '\n':
                 changelog_file.write('\n')
             for changelog_line in changelog_lines:
                 changelog_file.write(changelog_line)
@@ -62,13 +68,14 @@ re_escape_markdown_span = re.compile(r'([\\\[\]()*])')
 
 
 def parse_changelog(lines):
-    re_change = re.compile(r'^-\s+\[(?P<commit>[0-9a-f]+)\]')
     commits = set()
     for line in lines:
         change_match = re_change.search(line)
         if change_match is not None:
             commits.add(change_match.group('commit'))
     return commits
+
+re_change = re.compile(r'^-\s+\[(?P<commit>[0-9a-f]+)\]')
 
 
 def get_git_changes():

@@ -50,6 +50,8 @@ abcdef this is another change
             main(['-o', output_filename])
             with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
+# Changelog
+
 ## 2021-04-30
 
 - [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change
@@ -62,6 +64,8 @@ abcdef this is another change
             main(['-o', output_filename])
             with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
+# Changelog
+
 ## 2021-04-30
 
 - [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change
@@ -74,6 +78,8 @@ abcdef this is another change
             main(['-o', output_filename])
             with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
+# Changelog
+
 ## 2021-05-01
 
 - [abcdf1](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf1) - one more thing
@@ -98,6 +104,104 @@ abcdef this is another change
             ]
         )
 
+    def test_output_no_title(self):
+        with patch('sys.stdout', StringIO()) as stdout, \
+             patch('sys.stderr', StringIO()) as stderr, \
+             tempfile.TemporaryDirectory() as tempdir, \
+             patch('simple_git_changelog.main.date') as mock_date, \
+             patch('subprocess.check_output', side_effect=[
+                 '''\
+abcdf0 this is a change
+abcdef this is another change
+''',
+                 TEST_GIT_URL
+             ]) as check_output:
+            output_filename = os.path.join(tempdir, 'CHANGELOG.md')
+
+            # Write an initial log file with no title
+            with open(output_filename, 'w', encoding='utf-8') as output_file:
+                output_file.write('''\
+## 2021-04-29
+
+- [abcdef](https://github.com/craigahobbs/simple-git-changelog/commit/abcdef) - this is another change
+''')
+
+            # Create file
+            mock_date.today.return_value = datetime.date(2021, 4, 30)
+            main(['-o', output_filename])
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
+                self.assertEqual(output_file.read(), '''\
+# Changelog
+
+## 2021-04-30
+
+- [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change
+
+## 2021-04-29
+
+- [abcdef](https://github.com/craigahobbs/simple-git-changelog/commit/abcdef) - this is another change
+''')
+
+        self.assertEqual(stdout.getvalue(), '')
+        self.assertEqual(stderr.getvalue(), '')
+        self.assertListEqual(
+            check_output.mock_calls,
+            [
+                call(['git', 'log', '--pretty=format:%h %s'], encoding='utf-8'),
+                call(['git', 'config', '--get', 'remote.origin.url'], encoding='utf-8')
+            ]
+        )
+
+    def test_output_custom_title(self):
+        with patch('sys.stdout', StringIO()) as stdout, \
+             patch('sys.stderr', StringIO()) as stderr, \
+             tempfile.TemporaryDirectory() as tempdir, \
+             patch('simple_git_changelog.main.date') as mock_date, \
+             patch('subprocess.check_output', side_effect=[
+                 '''\
+abcdf0 this is a change
+abcdef this is another change
+''',
+                 TEST_GIT_URL
+             ]) as check_output:
+            output_filename = os.path.join(tempdir, 'CHANGELOG.md')
+
+            # Write an initial log file with no title
+            with open(output_filename, 'w', encoding='utf-8') as output_file:
+                output_file.write('''\
+# Change History
+
+## 2021-04-29
+
+- [abcdef](https://github.com/craigahobbs/simple-git-changelog/commit/abcdef) - this is another change
+''')
+
+            # Create file
+            mock_date.today.return_value = datetime.date(2021, 4, 30)
+            main(['-o', output_filename])
+            with open(output_filename, 'r', encoding='utf-8') as output_file:
+                self.assertEqual(output_file.read(), '''\
+# Change History
+
+## 2021-04-30
+
+- [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change
+
+## 2021-04-29
+
+- [abcdef](https://github.com/craigahobbs/simple-git-changelog/commit/abcdef) - this is another change
+''')
+
+        self.assertEqual(stdout.getvalue(), '')
+        self.assertEqual(stderr.getvalue(), '')
+        self.assertListEqual(
+            check_output.mock_calls,
+            [
+                call(['git', 'log', '--pretty=format:%h %s'], encoding='utf-8'),
+                call(['git', 'config', '--get', 'remote.origin.url'], encoding='utf-8')
+            ]
+        )
+
     def test_unmatched_git_url(self):
         with patch('sys.stdout', StringIO()) as stdout, \
              patch('sys.stderr', StringIO()) as stderr, \
@@ -117,6 +221,8 @@ abcdef this is another change
             main(['-o', output_filename])
             with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
+# Changelog
+
 ## 2021-04-30
 
 - [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change
@@ -152,6 +258,8 @@ abcdf0 this is a change ()[]\\*
             main(['-o', output_filename])
             with open(output_filename, 'r', encoding='utf-8') as output_file:
                 self.assertEqual(output_file.read(), '''\
+# Changelog
+
 ## 2021-04-30
 
 - [abcdf0](https://github.com/craigahobbs/simple-git-changelog/commit/abcdf0) - this is a change \\(\\)\\[\\]\\\\\\*
