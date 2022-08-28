@@ -17,6 +17,8 @@ $ simple-git-changelog
 By default, the "CHANGELOG.md" file is created with your project's changes. For example:
 
 ``` markdown
+# Changelog
+
 ## 2021-04-30
 
 - [abcdf0](https://github.com/username/project-name/commit/abcdf0) most recent change
@@ -28,6 +30,8 @@ Edit "CHANGELOG.md" as appropriate and commit. To update your changelog file lat
 simple-git-changelog again. Change items for new git changes are added to the top of the changelog:
 
 ``` markdown
+# MyProject Changelog
+
 ## 2021-05-01
 
 - [abcdf1](https://github.com/username/project-name/commit/abcdf1) one more thing
