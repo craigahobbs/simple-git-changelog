@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 (2022-10-31)
+
+- [56b1825](https://github.com/craigahobbs/simple-git-changelog/commit/56b1825) - add pyproject.toml and setup.cfg, remove setup.py
+
 ## 1.1.0 (2022-08-28)
 
 - [3c43e7f](https://github.com/craigahobbs/simple-git-changelog/commit/3c43e7f) - add changelog title
