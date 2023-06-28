@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 (2023-06-28)
+
+- [88453d1](https://github.com/craigahobbs/simple-git-changelog/commit/88453d1) - add python 3.12 support, remove python 3.7 support \(end-of-life\)
+
 ## 1.1.1 (2022-10-31)
 
 - [56b1825](https://github.com/craigahobbs/simple-git-changelog/commit/56b1825) - add pyproject.toml and setup.cfg, remove setup.py
