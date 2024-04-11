@@ -9,11 +9,6 @@
 file.
 
 
-## Links
-
-- [Source code](https://github.com/craigahobbs/simple-git-changelog)
-
-
 ## Create the Changelog File
 
 To create your project's changelog file, run simple-git-changelog in your project's root directory:
