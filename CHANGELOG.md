@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 (2024-10-02)
+
+- [0e442ba](https://github.com/craigahobbs/simple-git-changelog/commit/0e442ba) - add Python 3.13, remove Python 3.8 \(end-of-life\)
+
 ## 1.1.2 (2023-06-28)
 
 - [88453d1](https://github.com/craigahobbs/simple-git-changelog/commit/88453d1) - add python 3.12 support, remove python 3.7 support \(end-of-life\)
