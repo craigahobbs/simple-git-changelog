@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.4 (2025-05-09)
+
+- [2102030](https://github.com/craigahobbs/simple-git-changelog/commit/2102030) - add Python 3.14
+
+- [995aafe](https://github.com/craigahobbs/simple-git-changelog/commit/995aafe) - remove setup.cfg license classifier
+
 ## 1.1.3 (2024-10-02)
 
 - [0e442ba](https://github.com/craigahobbs/simple-git-changelog/commit/0e442ba) - add Python 3.13, remove Python 3.8 \(end-of-life\)
