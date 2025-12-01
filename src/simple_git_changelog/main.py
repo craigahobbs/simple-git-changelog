@@ -10,6 +10,7 @@ from datetime import date
 import os
 import re
 import subprocess
+import sys
 
 
 def main(args=None):
@@ -18,7 +19,10 @@ def main(args=None):
     """
 
     # Command-line arguments
-    parser = argparse.ArgumentParser(prog='simple-git-changelog', color=False)
+    argument_parser_args = {'prog': 'simple-git-changelog'}
+    if sys.version_info >= (3, 14): # pragma: no cover
+        argument_parser_args['color'] = False
+    parser = argparse.ArgumentParser(**argument_parser_args)
     parser.add_argument('-o', metavar='FILE', dest='output', default='CHANGELOG.md',
                         help='specify the change log file (default is "CHANGELOG.md")')
     args = parser.parse_args(args=args)
