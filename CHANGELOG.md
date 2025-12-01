@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.5 (2025-12-01)
+
+- [198fd8b](https://github.com/craigahobbs/simple-git-changelog/commit/198fd8b) - ArgumentParser color=False
+
 ## 1.1.4 (2025-05-09)
 
 - [2102030](https://github.com/craigahobbs/simple-git-changelog/commit/2102030) - add Python 3.14
