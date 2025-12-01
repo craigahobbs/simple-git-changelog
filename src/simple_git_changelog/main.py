@@ -18,7 +18,7 @@ def main(args=None):
     """
 
     # Command-line arguments
-    parser = argparse.ArgumentParser(prog='simple-git-changelog')
+    parser = argparse.ArgumentParser(prog='simple-git-changelog', color=False)
     parser.add_argument('-o', metavar='FILE', dest='output', default='CHANGELOG.md',
                         help='specify the change log file (default is "CHANGELOG.md")')
     args = parser.parse_args(args=args)
